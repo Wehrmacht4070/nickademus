@@ -7,3 +7,5 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+alias update='sudo pacman -Syyuv'
+alias fish='asciiquarium'
