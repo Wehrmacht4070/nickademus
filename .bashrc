@@ -11,9 +11,9 @@ echo "Everytime you load bash, a Windows computer crashes. Welcome back $USER!"
 #echo -e "Today is $(date)\nUptime: $(uptime)"
 #echo "Your personal settings have been loaded successfully."
 #echo "Good luck today!"
-
+#-------
 #ALIASES
-
+#-------
 alias update='sudo pacman -Syyuv'
 alias fish='asciiquarium'
 alias home='cd ~'
@@ -27,9 +27,9 @@ alias reboot='echo “Are you sure you want to do that `hostname` [y/N]?” && r
 alias path='echo -e ${PATH//:/\\n}'
 #ForTheLOLZ
 alias busy='cat /dev/urandom | hexdump -C | grep 'ca''
-
+#---------
 #FUNCTIONS
-
+#---------
 #compressed file extractor
 function extract {
  if [ -z "$1" ]; then
