@@ -1,0 +1,143 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+alignment top_right
+imlib_cache_size 0
+background yes
+border_width 1
+cpu_avg_samples 2
+default_color cornflowerblue
+default_outline_color black
+default_shade_color black
+double_buffer yes
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades yes
+gap_x 12
+gap_y 32
+maximum_width 315
+max_port_monitor_connections 64
+max_specials 512
+max_user_text 16384
+minimum_size 280 5
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+own_window_colour black
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type desktop
+own_window yes
+stippled_borders 2
+update_interval 1.0
+uppercase no
+use_spacer none
+use_xft no
+xftalpha 0.8
+xftfont  Bitstream Vera Sans Mono:size=9
+font 7x13
+total_run_times 0
+override_utf8_locale no
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+${color #3a5fcd}$nodename-XFCE4    ${alignc}$sysname $kernel ${alignr}${time %l:%M %p}
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd} System: ArchLinux-wehrmacht Linux 4.10.11-1
+${color #3a5fcd} Uptime:${color #4876ff} $uptime ${color #3a5fcd}- Load:${color #4876ff} $loadavg
+${color #3a5fcd} CPU Frequency:${color #4876ff} ${freq_g} Ghz ${color #3a5fcd} Maximum:${color #4876ff} $freq_g Ghz
+${color #3a5fcd} CPU Usage:${color #4876ff} $cpu% ${cpubar}
+${color #000000}${cpugraph cpu0 32,309 000000 4876ff}
+${color #3a5fcd} RAM Usage:${color #4876ff} $mem/$memmax - $memperc% ${membar}
+${color #3a5fcd} Swap Usage:${color #4876ff} $swap/$swapmax - $swapperc% ${swapbar}
+${color #3a5fcd} Processes:${color #4876ff} $processes  ${color #3a5fcd}Running:${color #4876ff} $running_processes
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd}File Systems:
+${color #3a5fcd}/root ${color #4876ff}${fs_used /}/${fs_size /} ${color #4876ff}${fs_bar /}
+${color #3a5fcd}/ home ${color #4876ff}${fs_used /home/nickademus/}/${fs_size /home/nickademus/} ${color #4876ff}${fs_bar /home/nickademus/}
+${color #3a5fcd}/ Music ${color #4876ff}${fs_used /var/lib/mpd/music/}/${fs_size /var/lib/mpd/music/} ${color #4876ff}${fs_bar /var/lib/mpd/music}
+
+${color #3a5fcd}Name               PID    CPU%   MEM%
+${color #4876ff} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color #4876ff} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color #4876ff} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+
+${color #3a5fcd}Mem usage
+${color #4876ff} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color #4876ff} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+${color #4876ff} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd}Monitors          CPU     FAN1   FAN2
+${color #4876ff}                  ${i8k_cpu_temp}C     ${i8k_left_fan_status}    ${i8k_right_fan_status}
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd}Networking:
+ ${color #3a5fcd}Down:${color #4876ff} ${downspeed enp3s0f0} k/s${color #3a5fcd}${offset 80}Up:${color #4876ff} ${upspeed enp3s0f0} k/s
+${color #000000}${downspeedgraph enp3s0f0 32,150 000000 7f8ed3} ${color #000000}${upspeedgraph enp3s0f0 32,150 000000 7f8ed3}
+ ${color #3a5fcd}Address: ${color #4876ff}${addr enp3s0f0}${alignr}${color #3a5fcd}TCP Connections: ${color #4876ff}${tcp_portmon 1 65535 count}
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd}Port(s)${alignr}#Connections
+
+${color #3a5fcd}Inbound: ${tcp_portmon 1 32767 count}  Outbound: ${tcp_portmon 32768 61000 count}${alignr} ALL: ${tcp_portmon 1 65535 count}
+  ${color #3a5fcd}Inbound Connection ${alignr} Local Service/Port$color
+  ${color #4876ff}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+  ${color #4876ff}${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+  ${color #4876ff}${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+  ${color #4876ff}${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+  ${color #4876ff}${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+
+ ${color #3a5fcd}Outbound Connection ${alignr} Remote Service/Port$color
+  ${color #4876ff}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+  ${color #4876ff}${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+  ${color #4876ff}${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+  ${color #4876ff}${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+  ${color #4876ff}${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+
+${color #3a5fcd}$hr
+
+${color #3a5fcd}${alignc}MPD/NCMPCPP
+${color #4876ff}${alignc}$mpd_artist
+${color #4876ff}${alignc}$mpd_album
+${color #4876ff}${alignc}$mpd_title
+${color #3a5fcd}$mpd_bar
+${color #4876ff}${alignc}$mpd_elapsed / $mpd_length
+${color #4876ff}${alignc}$mpd_status
+
+${color #3a5fcd}$hr
+
+${image /home/nickademus/Pictures/arch.png -p 40,920 -s 230x230}
+#${image /home/nickademus/Pictures/gentoologo.png -p 90,0 -s 15x15}
