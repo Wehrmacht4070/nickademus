@@ -20,8 +20,9 @@ alias home='cd ~'
 alias lsd='ls -ld `find . -maxdepth 1 -type d -o -type l`'
 alias ls='ls -lAi --group-directories-first --color='always''
 alias reload='. ~/.bash_profile'
-alias shutdown='echo “Are you sure you want to do that `hostname` [y/N]?” && read shutdown_answer && if [ “$shutdown_answer” == y ]; then /sbin/shutdown -h now; fi'
-alias reboot='echo “Are you sure you want to do that `hostname` [y/N]?” && read reboot_answer && if [ “$reboot_answer” == y ]; then /sbin/reboot; fi'
+#alias shutdown='echo “Are you sure you want to do that `hostname` [y/N]?” && read shutdown_answer && if [ “$shutdown_answer” == y ]; then /sbin/shutdown -h now; fi'
+#alias reboot='echo “Are you sure you want to do that `hostname` [y/N]?” && read reboot_answer && if [ “$reboot_answer” == y ]; then /sbin/reboot; fi'
+#I don't seem to have the correct syntax here either. But I thought it'd be really cool to have a shutdown/reboot alias that wants confirmation
 #alias ipcheck='nmap -sP $(ip -o addr show | grep inet\  | grep eth | cut -d\  -f 7)'
 #this is currently under repair, trying to figure out my target error. Any help is most appreciated.
 alias path='echo -e ${PATH//:/\\n}'
