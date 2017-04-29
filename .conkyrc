@@ -104,9 +104,9 @@ ${color #4876ff}                  ${i8k_cpu_temp}C     ${i8k_left_fan_status}   
 ${color #3a5fcd}$hr
 
 ${color #3a5fcd}Networking:
- ${color #3a5fcd}Down:${color #4876ff} ${downspeed enp3s0f0} k/s${color #3a5fcd}${offset 80}Up:${color #4876ff} ${upspeed enp3s0f0} k/s
-${color #000000}${downspeedgraph enp3s0f0 32,150 000000 7f8ed3} ${color #000000}${upspeedgraph enp3s0f0 32,150 000000 7f8ed3}
- ${color #3a5fcd}Address: ${color #4876ff}${addr enp3s0f0}${alignr}${color #3a5fcd}TCP Connections: ${color #4876ff}${tcp_portmon 1 65535 count}
+ ${color #3a5fcd}Down:${color #4876ff} ${downspeed enp3s0} k/s${color #3a5fcd}${offset 80}Up:${color #4876ff} ${upspeed enp3s0} k/s
+${color #000000}${downspeedgraph enp3s0 32,150 000000 4876ff} ${color #000000}${upspeedgraph enp3s0 32,150 000000 4876ff}
+ ${color #3a5fcd}Address: ${color #4876ff}${addr enp3s0}${alignr}${color #3a5fcd}TCP Connections: ${color #4876ff}${tcp_portmon 1 65535 count}
 
 ${color #3a5fcd}$hr
 
@@ -140,4 +140,4 @@ ${color #4876ff}${alignc}$mpd_status
 ${color #3a5fcd}$hr
 
 ${image /home/nickademus/Pictures/arch.png -p 40,920 -s 230x230}
-#${image /home/nickademus/Pictures/gentoologo.png -p 90,0 -s 15x15}
+#${image /home/nickademus/Pictures/archlogo.png -p 90,0 -s 15x15}
